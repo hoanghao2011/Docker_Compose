@@ -1,0 +1,20 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: bai8-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3307:3306"
+
+  app:
+    build: .
+    container_name: bai8-node
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

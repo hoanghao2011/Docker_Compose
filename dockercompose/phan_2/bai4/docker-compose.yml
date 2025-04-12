@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  node:
+    build: .
+    container_name: node_bai4
+    ports:
+      - "3000:3000"
